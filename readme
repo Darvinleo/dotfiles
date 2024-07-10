@@ -1,0 +1,19 @@
+#Download Ubuntu Nerd and Jetbrains NerdFonts
+# install neovim 
+
+# Install this for normal work of dot files
+pip install i3ipc
+sudo apt intall nitrogen rofi polybar xautolock xss-lock i3 main xclip
+
+
+#Make symlynks for dotfiles
+
+ln -s ~/rpamirov/dotfiles/i3/ ~/.config/i3
+ln -s ~/rpamirov/dotfiles/nvim ~/.config/nvim
+ln -s ~/rpamirov/dotfiles/polybar/ ~/.config/polybar
+ln -s ~/rpamirov/dotfiles/rofi ~/.config/rofi
+
+#Allow to adjut brightness without sudo
+sudo visudo
+username ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
+sudo usermod -a -G video ${USER}

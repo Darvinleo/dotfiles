@@ -1,0 +1,8 @@
+require 'options'
+require 'keymaps'
+require 'plugins.lazy'
+require 'plugins.autopairs'
+require 'plugins.indent_line'
+require 'plugins.debug'
+require 'plugins.lint'
+require 'plugins.neo-tree'

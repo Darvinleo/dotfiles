@@ -1,0 +1,11 @@
+Install this for normal work of dot files
+pip install i3ipc
+sudo apt intall nitrogen dmenu polybar
+
+#Download Ubuntu Nerd and Jetbrains NerdFonts
+#
+
+#Allow to adjut brightness without sudo
+# sudo visudo
+username ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
+sudo usermod -a -G video ${USER}
