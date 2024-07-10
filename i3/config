@@ -26,9 +26,11 @@ exec --no-startup-id dex --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# Lock screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l"
+bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -178,12 +180,9 @@ bindsym Shift+Print exec maim --select "/home/$USER/Pictures/$(date).jpg"
 bindsym Ctrl+Print exec maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec maim --select | xclip -selection clipboard -t image/png
-
-exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/samsung-galaxy.jpg
+exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/night_mountains.jpg
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
-
-# Bind Shift+Alt to switch keyboard layout
 exec_always "setxkbmap -model pc104 -layout us,ru -variant ,, -option grp:alt_shift_toggle
 # Set mediakeys
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -191,8 +190,6 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle; # Turn off microphone
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- # decrease screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%+ # increase screen brightness
+# Lock screen
 
-#Lock screen Win+L
-bindsym $mod+L exec --no-startup-id i3lock
-exec_always 'nitrogen --restore' 
-exec_always --no-startup-id ~/.config/i3/scripts/workspace_listener.py
+# exec_always --no-startup-id ~/.config/i3/scripts/workspace_listener.py

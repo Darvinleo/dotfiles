@@ -1,10 +1,16 @@
+#Install WARP term and make it default
+#Install zsh and ohmyzsh and make it default
 #Download Ubuntu Nerd and Jetbrains NerdFonts
 # install neovim 
 
 # Install this for normal work of dot files
 pip install i3ipc
-sudo apt intall nitrogen rofi polybar xautolock xss-lock i3 main
+sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick
 
+#install i3lock-color AND DEPENDENCIES
+# https://github.com/Raymo111/i3lock-color/tree/master
+#
+#Install betterlockscreen
 
 #Make symlynks for dotfiles
 
