@@ -3,15 +3,15 @@
 
 # Install this for normal work of dot files
 pip install i3ipc
-sudo apt intall nitrogen rofi polybar xautolock xss-lock i3 main xclip
+sudo apt intall nitrogen rofi polybar xautolock xss-lock i3 main
 
 
 #Make symlynks for dotfiles
 
-ln -s ~/rpamirov/dotfiles/i3/ ~/.config/i3
-ln -s ~/rpamirov/dotfiles/nvim ~/.config/nvim
-ln -s ~/rpamirov/dotfiles/polybar/ ~/.config/polybar
-ln -s ~/rpamirov/dotfiles/rofi ~/.config/rofi
+ln -s ~/$USER/dotfiles/i3/ ~/.config/i3
+ln -s ~/$USER/dotfiles/nvim ~/.config/nvim
+ln -s ~/$USER/dotfiles/polybar/ ~/.config/polybar
+ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
 
 #Allow to adjut brightness without sudo
 sudo visudo
