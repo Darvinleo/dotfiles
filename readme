@@ -5,13 +5,13 @@
 
 # Install this for normal work of dot files
 pip install i3ipc
-sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick
+sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick xrandr arandr autorandr
 
 #install i3lock-color AND DEPENDENCIES
 # https://github.com/Raymo111/i3lock-color/tree/master
 #
-#Install betterlockscreen
-
+#Install betterlockscreen and generate wallpaper
+betterlockscreen -u ~/Pictures/Wallpapers/lock_screen.png
 #Make symlynks for dotfiles
 
 ln -s ~/$USER/dotfiles/i3/ ~/.config/i3
@@ -23,3 +23,47 @@ ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
 sudo visudo
 username ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
 sudo usermod -a -G video ${USER}
+
+==================================
+Add this file /etc/systemd/system/i3lock.service
+cat /etc/systemd/system/i3lock.service
+
+[Unit]
+Description=i3lock on suspend
+Before=sleep.target
+
+[Service]
+User=user
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/local/bin/betterlockscreen -l
+
+[Install]
+WantedBy=sleep.target
+Config Multiple Monitors in i3
+
+==================================
+
+
+https://jaketrent.com/post/config-multiple-monitors-i3/
+Here's how to conveniently set your screen configuration in X11/RandR for multiple monitors. It'll work for i3 or other windowing environments.
+Open arandr and set up your multiple screen relative positions, resolutions, etc, and save. This will save your RandR config. Your screens will flicker, but once everything's back up, you should be able to function as desired.
+Detect Future Changes
+
+autorandr will help you for the next time that you have hardware change. It'll be able to tell what inputs are there and switch to it.
+
+For me, I wanted two configurations: one for when I was docked (multi-monitor), one for on-the-go.
+
+I plugged in the monitor, set it with arandr. Then saved the config with autorandr:
+
+autorandr --save docked
+
+Then I unplugged the monitor, turned off the input with xrandr:
+
+xrandr --output HDMI-1 --off
+
+Then saved the on-the-go config:
+
+autorandr --save solo
+
+i3 should be happy with all this, and you'll be able to create new windows on different monitors.
