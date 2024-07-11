@@ -5,7 +5,7 @@
 
 # Install this for normal work of dot files
 pip install i3ipc
-sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick xrandr arandr autorandr
+sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq
 
 #install i3lock-color AND DEPENDENCIES
 # https://github.com/Raymo111/i3lock-color/tree/master
