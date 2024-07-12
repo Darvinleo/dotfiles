@@ -19,6 +19,11 @@ ln -s ~/$USER/dotfiles/nvim ~/.config/nvim
 ln -s ~/$USER/dotfiles/polybar/ ~/.config/polybar
 ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
 
+#in ~/$USER/dotfiles/polybar/config.ini adjust battery and adapter name on yours.
+# Check ls /sys/class/power_supply/ for their names
+# Also in this file change name of interfaces ( check output ' ip -br a s '  )
+# 
+#
 #Allow to adjut brightness without sudo
 sudo visudo
 username ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
