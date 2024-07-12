@@ -1,16 +1,15 @@
 #Install WARP term and make it default
 #Install zsh and ohmyzsh and make it default
 #Download Ubuntu Nerd and Jetbrains NerdFonts
-# install neovim 
+# install neovim and tmux
 
-# Install this for normal work of dot files
-pip install i3ipc
-sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq
+# Install dependencies 
+sudo apt intall rofi polybar xautolock xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq xfce4-power-manager
 
-#install i3lock-color AND DEPENDENCIES
+#install i3lock-color AND DEPENDENCIES ( check site below)
 # https://github.com/Raymo111/i3lock-color/tree/master
 #
-#Install betterlockscreen and generate wallpaper
+#Install betterlockscreen and generate wallpaper (Better connect all external monitors before this operation)
 betterlockscreen -u ~/Pictures/Wallpapers/lock_screen.png
 #Make symlynks for dotfiles
 
@@ -18,6 +17,8 @@ ln -s ~/$USER/dotfiles/i3/ ~/.config/i3
 ln -s ~/$USER/dotfiles/nvim ~/.config/nvim
 ln -s ~/$USER/dotfiles/polybar/ ~/.config/polybar
 ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
+ln -s ~/$USER/dotfiles/.tmux ~/.config/rofi
+ln -s ~/$USER/dotfiles/.tmux.conf ~/.config/.tmux.conf
 
 #in ~/$USER/dotfiles/polybar/config.ini adjust battery and adapter name on yours.
 # Check ls /sys/class/power_supply/ for their names
@@ -29,6 +30,8 @@ sudo visudo
 username ALL=(ALL) NOPASSWD: /usr/bin/brightnessctl
 sudo usermod -a -G video ${USER}
 
+# Allow WG to Up personal vpn only on 5 workspace and Down it on any other Workspace.
+# Add your sudo password to ~/.password file
 ==================================
 Add this file /etc/systemd/system/i3lock.service
 cat /etc/systemd/system/i3lock.service

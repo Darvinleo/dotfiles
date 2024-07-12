@@ -6,12 +6,11 @@ floating_modifier $mod
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l"
 exec --no-startup-id nm-applet
-
+exec_always --no-startup-id ~/.config/i3/scripts/wg_on_workspace5.sh
 # Set main display (eDP-1)
 exec --no-startup-id xrandr --output eDP-1 --primary --auto
 # Set HDMI monitor (horizontal, above main display)
 exec --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1
-
 # set HDMI monitor as primary if connected. If it's not , use laptop's built-in display
 exec_always --no-startup-id ~/.config/i3/scripts/set_primary_display.sh
 
