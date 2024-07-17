@@ -22,9 +22,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- # decrease screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%+ # increase screen brightness
 #Lockscreen
-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l
+bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l --show-layout
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio \
-  --timer 300 'betterlockscreen -l' '' \
+  --timer 300 'betterlockscreen -l --show-layout' '' \
   --timer 600 'systemctl suspend' '' \
   --timer 1800 'systemctl hibernate' ''
 

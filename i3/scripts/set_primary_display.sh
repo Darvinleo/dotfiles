@@ -2,7 +2,6 @@
 
 # Get the connection status of HDMI monitor
 HDMI_CONNECTED=$(xrandr | grep "HDMI-1 connected")
-echo "Script executed!" >> ~/script_log.txt
 if [ -n "$HDMI_CONNECTED" ]; then
     # HDMI monitor is connected
     xrandr --output HDMI-1 --primary --auto --above eDP-1
