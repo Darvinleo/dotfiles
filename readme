@@ -1,10 +1,11 @@
-#Install WARP term and make it default
+#Install kitty term and make it default
 #Install zsh and ohmyzsh and make it default
-#Download Ubuntu Nerd and Jetbrains NerdFonts
+#Download any Nerd font ( let's say Jetbrains NerdFonts)
 # install neovim and tmux
+# Install LazyNvim  (https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/)
 
 # Install dependencies 
-sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq wireguard resolvconf
+sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq wireguard resolvconf fd-find
 
 #install i3lock-color AND DEPENDENCIES ( check site below)
 # https://github.com/Raymo111/i3lock-color/tree/master
@@ -19,6 +20,7 @@ ln -s ~/$USER/dotfiles/polybar/ ~/.config/polybar
 ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
 ln -s ~/$USER/dotfiles/.tmux ~/.config/rofi
 ln -s ~/$USER/dotfiles/.tmux.conf ~/.config/.tmux.conf
+ln -s ~/$USER/dotfiles/kitty ~/.config/kitty
 
 #in ~/$USER/dotfiles/polybar/config.ini adjust battery and adapter name on yours.
 # Check ls /sys/class/power_supply/ for their names
