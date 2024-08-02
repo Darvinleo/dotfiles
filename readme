@@ -3,6 +3,7 @@
 #Download any Nerd font ( let's say Jetbrains NerdFonts)
 # install neovim and tmux
 # Install LazyNvim  (https://lazyvim-ambitious-devs.phillips.codes/course/chapter-1/)
+# Install yazi and dependencies (https://yazi-rs.github.io/docs/installation/)
 
 # Install dependencies 
 sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq wireguard resolvconf fd-find
@@ -10,7 +11,7 @@ sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr aut
 #install i3lock-color AND DEPENDENCIES ( check site below)
 # https://github.com/Raymo111/i3lock-color/tree/master
 #
-#Install betterlockscreen and generate wallpaper (Better connect all external monitors before this operation)
+#Install xidlehook and betterlockscreen, then generate wallpapers (Better connect all external monitors before this operation)
 betterlockscreen -u ~/Pictures/Wallpapers/lock_screen.png
 #Make symlynks for dotfiles
 
@@ -36,7 +37,6 @@ sudo usermod -a -G video ${USER}
 # Add your sudo password to ~/.password file
 ==================================
 Add this file /etc/systemd/system/i3lock.service
-cat /etc/systemd/system/i3lock.service
 
 [Unit]
 Description=i3lock on suspend

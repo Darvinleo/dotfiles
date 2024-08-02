@@ -4,7 +4,6 @@ set $mod Mod4
 font pango:UbuntuNerdFont 12
 floating_modifier $mod
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l"
 exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/i3/scripts/wg_on_workspace5.sh
 # Set main display (eDP-1)
@@ -25,8 +24,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%+ # increas
 bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l --show-layout
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio \
   --timer 300 'betterlockscreen -l --show-layout' '' \
-  --timer 600 'systemctl suspend' '' \
-  --timer 1800 'systemctl hibernate' ''
+  --timer 600 'systemctl suspend' ''
 
 bindsym $mod+Return exec i3-sensible-terminal
 # kill windows
