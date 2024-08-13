@@ -159,3 +159,4 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/night_mountains
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always "setxkbmap -model pc104 -layout us,ru -variant ,, -option grp:alt_shift_toggle
+exec_always --no-startup-id setxkbmap -option caps:swapescape
