@@ -57,3 +57,6 @@ Config Multiple Monitors in i3
 Adjust your monitors
 https://jaketrent.com/post/config-multiple-monitors-i3/
 
+# Bind caps-lock as Escape
+setxkbmap -option caps:escape
+

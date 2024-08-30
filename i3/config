@@ -132,22 +132,17 @@ bindsym Ctrl+Shift+Print exec maim --select | xclip -selection clipboard -t imag
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+       # These bindings trigger as soon as you enter the resize mode
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -159,4 +154,4 @@ exec_always --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/night_mountains
 exec_always --no-startup-id killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 exec_always "setxkbmap -model pc104 -layout us,ru -variant ,, -option grp:alt_shift_toggle
-exec_always --no-startup-id setxkbmap -option caps:swapescape
+exec_always --no-startup-id source ~/.zshrc

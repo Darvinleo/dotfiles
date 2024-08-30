@@ -193,6 +193,7 @@ return {
         "shellcheck",
         "shfmt",
         "flake8",
+        "black",
       },
     },
   },
@@ -202,6 +203,7 @@ return {
       formatters_by_ft = {
         ["markdown"] = { "prettier" },
         ["sh"] = { "shfmt" },
+        ["python"] = { "black" },
         formatters = {
           injected = { options = { ignore_errors = true } },
           shfmt = {
