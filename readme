@@ -6,22 +6,25 @@
 # Install yazi and dependencies (https://yazi-rs.github.io/docs/installation/)
 
 # Install dependencies 
-sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq wireguard resolvconf fd-find
+sudo apt intall rofi polybar xss-lock i3 main tmux imagemagick xrandr arandr autorandr jq wireguard resolvconf fd-find xfce4-terminal
 
 #install i3lock-color AND DEPENDENCIES ( check site below)
-# https://github.com/Raymo111/i3lock-color/tree/master
-#
-#Install xidlehook and betterlockscreen, then generate wallpapers (Better connect all external monitors before this operation)
-betterlockscreen -u ~/Pictures/Wallpapers/lock_screen.png
+https://github.com/Raymo111/i3lock-color/tree/master
+#Install xidlehook and betterlockscreen, then generate black wallpaper (Better connect all external monitors before this operation)
+betterlockscreen -u ~/Pictures/Wallpapers/lock_screen.png #Just black image for matrix 
+#Install cmatrix
+https://github.com/abishekvashok/cmatrix
+
 #Make symlynks for dotfiles
 
 ln -s ~/$USER/dotfiles/i3/ ~/.config/i3
 ln -s ~/$USER/dotfiles/nvim ~/.config/nvim
 ln -s ~/$USER/dotfiles/polybar/ ~/.config/polybar
 ln -s ~/$USER/dotfiles/rofi ~/.config/rofi
-ln -s ~/$USER/dotfiles/.tmux ~/.config/rofi
+ln -s ~/$USER/dotfiles/.tmux ~/.config/tmux
 ln -s ~/$USER/dotfiles/.tmux.conf ~/.config/.tmux.conf
 ln -s ~/$USER/dotfiles/kitty ~/.config/kitty
+ln -s ~/$USER/dotfiles/picom ~/.config/picom
 
 #in ~/$USER/dotfiles/polybar/config.ini adjust battery and adapter name on yours.
 # Check ls /sys/class/power_supply/ for their names
@@ -35,6 +38,19 @@ sudo usermod -a -G video ${USER}
 
 # Allow WG to Up personal vpn only on 5 workspace and Down it on any other Workspace.
 # Add your sudo password to ~/.password file
+#
+# Add this to your ~/.gitconfig
+#
+[merge]
+	tool = "nvim"
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
 ==================================
 Add this file /etc/systemd/system/i3lock.service
 

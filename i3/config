@@ -12,7 +12,7 @@ exec --no-startup-id xrandr --output eDP-1 --primary --auto
 exec --no-startup-id xrandr --output HDMI-1 --auto --above eDP-1
 # set HDMI monitor as primary if connected. If it's not , use laptop's built-in display
 exec_always --no-startup-id ~/.config/i3/scripts/set_primary_display.sh
-
+exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -21,9 +21,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%- # decrease screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +10%+ # increase screen brightness
 #Lockscreen
-bindsym $mod+Shift+x exec --no-startup-id betterlockscreen -l --show-layout
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/scripts/matrixlock
 exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio \
-  --timer 300 'betterlockscreen -l --show-layout' '' \
+  --timer 300 '~/.config/i3/scripts/matrixlock' '' \
   --timer 600 'systemctl suspend' ''
 
 bindsym $mod+Return exec i3-sensible-terminal
