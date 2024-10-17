@@ -40,17 +40,14 @@ sudo usermod -a -G video ${USER}
 # Add your sudo password to ~/.password file
 #
 # Add this to your ~/.gitconfig
-#
+[diff]
+    tool = vimdiff
 [merge]
-	tool = "nvim"
-
-[mergetool]
-	keepBackup = false
-	prompt = false
-
-[mergetool "nvim"]
-	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
-
+    tool = vimdiff
+    conflictstyle = zdiff3
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED \
+          -c '$wincmd w' -c 'wincmd J'
 ==================================
 Add this file /etc/systemd/system/i3lock.service
 
@@ -76,3 +73,28 @@ https://jaketrent.com/post/config-multiple-monitors-i3/
 # Bind caps-lock as Escape
 setxkbmap -option caps:escape
 
+Add this lines to your .zsrhc
+
+# ZNAP STUFF
+[[ -r ~/Repos/znap/znap.zsh ]] ||
+    git clone --depth 1 -- https://github.com/marlonrichert/zsh-snap.git ~/Repos/znap
+source ~/Repos/znap/znap.zsh
+znap prompt sindresorhus/pure
+# `znap source` starts plugins.
+znap source marlonrichert/zsh-autocomplete
+znap source zsh-users/zsh-autosuggestions
+# `znap eval` makes evaluating generated command output up to 10 times faster.
+znap eval iterm2 'curl -fsSL https://iterm2.com/shell_integration/zsh'
+
+# `znap function` lets you lazy-load features you don't always need.
+znap function _pyenv pyenv "znap eval pyenv 'pyenv init - --no-rehash'"
+compctl -K    _pyenv pyenv
+# `znap install` adds new commands and completions.
+znap install aureliojargas/clitest zsh-users/zsh-completions
+export NVM_DIR="$HOME/.config/nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="--preview 'batcat --color=always {}'"
