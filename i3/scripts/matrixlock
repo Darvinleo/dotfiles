@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # kitty --start-as fullscreen --override background_opacity=1.0 --override foreground=black sh -c 'bash -c "sleep 0 && cmatrix -b"' &
-xfce4-terminal --hide-scrollbar --hide-menubar --color-text=black -e cmatrix &
+xfce4-terminal --geometry=1920x1080 --hide-scrollbar --hide-menubar --color-text=black -e cmatrix &
 sleep 0.2
 
 i3-msg fullscreen
